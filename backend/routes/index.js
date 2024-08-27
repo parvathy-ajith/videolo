@@ -95,6 +95,10 @@ const passwordSchema = Joi.object({
 //   }
 // });
 
+/* GET admin landing page. */
+router.get('/', function (req, res, next) {
+  res.render('landing');
+});
 
 /* GET admin login page. */
 router.get('/login', function (req, res, next) {
