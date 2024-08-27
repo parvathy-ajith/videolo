@@ -1,0 +1,48 @@
+<% title='Movie Management' %>
+    <!--Main layout-->
+    <main style="margin-top: 58px;">
+        <div class="container pt-4">
+            <div class="form-wrapper">
+                <form class="add-edit" enctype="multipart/form-data" method="post"
+                action="<%= heading === 'Edit' ? '/admin/dashboard/movies/update' : '/admin/dashboard/movies/save' %>">
+                    <div class="form-header">
+                        <h4 class="title">
+                            <%=heading%> Movie
+                        </h4>
+                    </div>
+                    <div class="form-body">
+                        <input id="id" name="id" type="hidden" class="form-control">
+                        <div class="form-group">
+                            <label>Title*</label>
+                            <input id="title" name="title" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description*</label>
+                            <textarea id="description" name="description" rows="4" cols="10" class="form-control"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Thumbnail Image <%= heading==='Edit'? '' : '*' %></label>
+                            <input id="image" name="image" type="file" class="form-control" <%= heading==='Edit'? '' : 'required' %> >
+                            <p id="imageLink"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Video <%= heading==='Edit'? '' : '*' %></label>
+                            <input id="video" name="video" type="file" class="form-control" <%= heading==='Edit'? '' : 'required' %>>
+                            <p id="videoLink"></p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary my-3">Submit</button>
+                </form>
+            </div>
+        </div>
+        <% if (movie) { %>
+            <script type="text/javascript">
+                document.getElementById('id').value = `<%= movie._id %>`;
+                document.getElementById('title').value = `<%= movie.title %>`;
+                document.getElementById('description').value = `<%= movie.description %>`;
+                document.getElementById('imageLink').innerHTML = `<a href="<%= movie.image %>" target="_blank">View current image</a> Choose a new image if you want to replace the current one.`;
+                document.getElementById('videoLink').innerHTML = `<a href="<%= movie.video %>" target="_blank">View current video</a>Choose a new video if you want to replace the current one.`;
+            </script>
+            <% } %>
+    </main>

@@ -1,0 +1,49 @@
+<% title='Movie Listing' %>
+    <!--Main layout-->
+    <main style="margin-top: 58px;">
+        <div class="container pt-4">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h4 class="title">Movie Details</h4>
+                </div>
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h5>Title</h5>
+                        </div>
+                        <div class="col-lg-10">
+                            <p class="view-details"><%= movie.title %> </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h5>Thumbnail </h5>
+                        </div>
+                        <div class="col-lg-10">
+                            <img src="<%= movie.image %>" alt="thumbnail image" class="img-thumbnail" width="200px"
+                                height="400px">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h5>Description</h5>
+                        </div>
+                        <div class="col-lg-10">
+                            <p class="view-details"><%= movie.description %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h5>Video</h5>
+                        </div>
+                        <div class="col-lg-10">
+                            <video width="560" height="315" controls>
+                                <source src="<%= movie.video %>" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </main>

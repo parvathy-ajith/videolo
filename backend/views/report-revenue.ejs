@@ -1,0 +1,53 @@
+<% title='Report | Revenue' %>
+    <!--Main layout-->
+    <main style="margin-top: 58px;">
+        <div class="container pt-4">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2><b>Revenue</b> Report</h2>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form class="d-flex my-2" role="search" action="/admin/dashboard/report/revenue">
+                        <label for="revenue-year" class="d-inline-block me-3 report-label">Select Year </label>
+                        <select id="revenue-year" name="searchYear" class="form-control d-inline-block w-25"
+                            aria-label="Default select example">
+                            <% for(let index = year; index > year - 6; index--) { %>
+                                <option class="text-center" value="<%= index %>" <%= index === Number(searchYear) ? 'selected' : '' %> ><%= index %></option>
+                            <% } %>
+                        </select>
+                        <button class="btn btn-outline-success me-1" type="submit">Search</button>
+                    </form>
+                </div>
+                <table class="table table-striped table-hover report-table" id="revenue-report-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Month</th>
+                            <th scope="col">Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; %>
+                        <% months.forEach((month,index) => { %>
+                            <tr>
+                                <th scope="row"> <%= index+1 %> </th>
+                                <td> <%= month %> </td>
+                                <% let revenue = result.find(obj=>obj._id===(index+1))%>
+                                <td class="currency"> <%= revenue ? revenue.revenue : 0 %></td>
+                            </tr>
+                        <% }) %>                        
+                        <tr class="total">
+                            <th scope="row" colspan="2" class="text-center">Total</th>
+                            <td class="currency"> <%= result.reduce((sum, obj)=> sum+obj.revenue,0) %> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="/javascripts/reports.js"></script>
+    <!--Main layout-->

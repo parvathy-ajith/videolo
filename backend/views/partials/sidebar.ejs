@@ -1,0 +1,37 @@
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="/admin/dashboard/movies" 
+                class="<%= tab_name == 'movies' ? 'list-group-item list-group-item-action py-2 ripple active' : 'list-group-item list-group-item-action py-2 ripple' %>"
+                aria-current="true">
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Movies</span>
+                </a>
+                <a href="/admin/dashboard/users" 
+                class="<%= tab_name == 'users' ? 'list-group-item list-group-item-action py-2 ripple active' : 'list-group-item list-group-item-action py-2 ripple' %>">
+                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Users</span>
+                </a>
+                <a href="/admin/dashboard/subscription-plans" 
+                class="<%= tab_name == 'subscriptions' ? 'list-group-item list-group-item-action py-2 ripple active' : 'list-group-item list-group-item-action py-2 ripple' %>">
+                    <i class="fas fa-lock fa-fw me-3"></i><span>Subscriptions</span></a>
+                <div class="<%= tab_name == 'reports' ? 'nav-item list-group-item list-group-item-action py-2 ripple dropdown active' : 'nav-item list-group-item list-group-item-action py-2 ripple dropdown' %>">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">
+                        <i class="fas fa-chart-line fa-fw me-3"></i>Reports</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/admin/dashboard/report/revenue">Revenue</a></li>
+                        <li><a class="dropdown-item" href="/admin/dashboard/report/subscibers">Subscribers</a></li>
+                        <li><a class="dropdown-item" href="/admin/dashboard/report/movie-views">Movie Views</a></li>
+                        <li><a class="dropdown-item" href="/admin/dashboard/report/movie-rating">Movie Rating</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+
+
+
+

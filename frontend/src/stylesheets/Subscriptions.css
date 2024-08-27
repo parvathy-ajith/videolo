@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+.subscriptions {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+}
+
+.plan-card {
+    background: linear-gradient(-45deg, rgba(36, 40, 255, 0.5), rgba(100, 181, 246, 0.5));
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    transition: .5s;
+}
+
+.plan-card:hover {
+    transform: scale(1.05);
+}
+
+.card-text ul {
+    list-style-type: none;
+    line-height: 180%;
+}
