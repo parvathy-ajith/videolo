@@ -11,7 +11,7 @@ const PrivateRoute = ({ element }) => {
         const authenticateToken = async () => {
             if (token) {
                 try {
-                    await axios.get('http://localhost:3080/videolo/api/authenticate', {
+                    await axios.get(`${process.env.REACT_APP_API_BASEURL}/authenticate`, {
                         headers: {
                             'Authorization': `Bearer ${token}`,
                             'Content-Type': 'application/json'

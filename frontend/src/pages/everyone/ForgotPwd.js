@@ -17,7 +17,7 @@ const ForgotPwd = () => {
 
     const sendEmail = async (data) => {
         try {
-            await axios.post(`http://localhost:3080/videolo/api/forgot-password`, {
+            await axios.post(`${process.env.REACT_APP_API_BASEURL}/forgot-password`, {
                 ...data
             });
 

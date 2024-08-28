@@ -24,7 +24,7 @@ const Movies = (props) => {
     //navigate to Movie video if subscribed user
     const viewMovie = async (movieId) => {
         try {
-            const response = await axios.get(`http://localhost:3080/videolo/api/subscribed/movie/${movieId}`, {
+            const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/subscribed/movie/${movieId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ const Movies = (props) => {
                     <Col key={movie._id} className="d-flex flex-column align-items-stretch movie-col">
                         <Card className='movie-card' onClick={() => viewMovie(movie._id)}>
                             <div className="image-container border">
-                                <Card.Img src={`http://localhost:3080/${movie.image}`} alt='Movie Poster' className="card-img" />
+                                <Card.Img src={`${process.env.REACT_APP_ASSET_BASEURL}/${movie.image}`} alt='Movie Poster' className="card-img" />
                                 <Card.ImgOverlay className='movie-card-overlay'>
                                     <div className="rating-overlay">
                                         {movie.averageRating} ★

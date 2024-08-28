@@ -22,7 +22,7 @@ const SignUp = () => {
 
   const signUpUser = async (data) => {
     try {
-      const response  = await axios.post("http://localhost:3080/videolo/api/register", {
+      const response  = await axios.post(`${process.env.REACT_APP_API_BASEURL}/register`, {
         name: data.name,
         email:data.email,
         password:data.password

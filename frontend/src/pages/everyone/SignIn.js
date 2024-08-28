@@ -25,7 +25,7 @@ const SignIn = () => {
 
   const loginUser = async (data) => {
     try {
-      const response = await axios.post("http://localhost:3080/videolo/api/login", {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASEURL}/login`, {
         email: data.email,
         password: data.password
       });

@@ -15,7 +15,7 @@ const PaymentPage = () => {
     const verifyPayment = async () => {
         try {
             const randomPaymentId = 'pay_' + Math.random().toString(36).slice(2, 11);
-            const response = await axios.patch(`http://localhost:3080/videolo/api/subscibe/verify`, {
+            const response = await axios.patch(`${process.env.REACT_APP_API_BASEURL}/subscibe/verify`, {
                 razorpay_orderID: orderId,
                 razorpay_paymentID: randomPaymentId
             }, {

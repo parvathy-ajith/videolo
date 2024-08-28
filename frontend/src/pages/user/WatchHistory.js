@@ -14,7 +14,7 @@ const WatchHistory = () => {
   useEffect(() => {
     const getWatchHistory = async () => {
       try {
-        const response = await axios.get('http://localhost:3080/videolo/api/movie/watchHistory', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/movie/watchHistory`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'

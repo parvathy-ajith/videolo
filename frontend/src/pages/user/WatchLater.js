@@ -14,7 +14,7 @@ const WatchLater = () => {
 
   const getWatchLaterMovies = async () => {
     try {
-      const response = await axios.get('http://localhost:3080/videolo/api/movie/watchLater', {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/movie/watchLater`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ const WatchLater = () => {
   //remove From Watch Later
   const removeFromWatchLater = async (movieId) => {
     try {
-      const response = await axios.patch(`http://localhost:3080/videolo/api/subscribed/movie/${movieId}/watchLater/remove`, {}, {
+      const response = await axios.patch(`${process.env.REACT_APP_API_BASEURL}/subscribed/movie/${movieId}/watchLater/remove`, {}, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

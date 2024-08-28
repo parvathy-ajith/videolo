@@ -39,7 +39,7 @@ const ResetPwd = () => {
 
     const handleResetPwdToken = async (data) => {
         try {
-            await axios.patch(`http://localhost:3080/videolo/api/reset-password`, {
+            await axios.patch(`${process.env.REACT_APP_API_BASEURL}/reset-password`, {
                 password: data.password
             }, {
                 headers: {
@@ -59,7 +59,7 @@ const ResetPwd = () => {
     // Reset password from email link
     const handleResetPwdEmailLink = async (data) => {
         try {
-            await axios.patch(`http://localhost:3080/videolo/api/reset-password/${userId}/${userToken}`, {
+            await axios.patch(`${process.env.REACT_APP_API_BASEURL}/reset-password/${userId}/${userToken}`, {
                 password: data.password
             });
 

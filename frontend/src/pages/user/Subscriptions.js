@@ -19,7 +19,7 @@ const Subscriptions = () => {
   useEffect(() => {
     const getAllSubscriptions = async () => {
       try {
-        const response = await axios.get('http://localhost:3080/videolo/api/subsciptionPlans', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/subsciptionPlans`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const Subscriptions = () => {
 
     const existingSubscriptionPlan = async () => {
       try {
-        const response = await axios.get('http://localhost:3080/videolo/api/subsciptionPlans/current', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/subsciptionPlans/current`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ const Subscriptions = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3080/videolo/api/subscibe', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASEURL}/subscibe`, {
         id: plan_id
       }, {
         headers: {

@@ -17,7 +17,7 @@ const MovieList = () => {
   useEffect(() => {
     const getAllMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:3080/videolo/api/movies', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/movies`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'

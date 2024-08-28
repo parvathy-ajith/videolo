@@ -16,7 +16,7 @@ const Movie = () => {
   useEffect(() => {
     const existingRating = async () => {
       try {
-        const response = await axios.get(`http://localhost:3080/videolo/api/subscribed/movie/${movie._id}/rating`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/subscribed/movie/${movie._id}/rating`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ const Movie = () => {
 
   const viewMovie = async () => {
     try {
-      await axios.patch(`http://localhost:3080/videolo/api/subscribed/movie/${movie._id}/viewed`, {}, {
+      await axios.patch(`${process.env.REACT_APP_API_BASEURL}/subscribed/movie/${movie._id}/viewed`, {}, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ const Movie = () => {
 
   const handleRating = async (newRating) => {
     try {
-      await axios.patch(`http://localhost:3080/videolo/api/subscribed/movie/${movie._id}/rating`, {
+      await axios.patch(`${process.env.REACT_APP_API_BASEURL}/subscribed/movie/${movie._id}/rating`, {
         rating: newRating
       }, {
         headers: {
@@ -72,7 +72,7 @@ const Movie = () => {
 
   const addToWatchLater = async () => {
     try {
-      const response = await axios.patch(`http://localhost:3080/videolo/api/subscribed/movie/${movie._id}/watchLater/add`, {}, {
+      const response = await axios.patch(`${process.env.REACT_APP_API_BASEURL}/subscribed/movie/${movie._id}/watchLater/add`, {}, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ const Movie = () => {
       <div className='row'>
         <div className='col-12  d-flex justify-content-center'>
           <video className='w-50 w-sm-100' controls onPlay={viewMovie}   >
-            <source src={`http://localhost:3080/${movie.video}`} type="video/mp4" />
+            <source src={`${process.env.REACT_APP_ASSET_BASEURL}/${movie.video}`} type="video/mp4" />
             Your browser does not support HTML video.
           </video>
         </div>

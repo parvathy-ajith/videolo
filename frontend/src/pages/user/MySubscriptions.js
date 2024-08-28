@@ -14,7 +14,7 @@ const MySubscriptions = () => {
   useEffect(() => {
     const existingSubscriptionPlan = async () => {
       try {
-        const response = await axios.get('http://localhost:3080/videolo/api/subsciptionPlans/current', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/subsciptionPlans/current`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const MySubscriptions = () => {
 
   const downloadPDF = async (id) => {
     try {
-      const response = await axios.get('http://localhost:3080/videolo/api/subsciptionPlans/downloadpdf', {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASEURL}/subsciptionPlans/downloadpdf`, {
         headers: {
           'Authorization': `Bearer ${token}`
         },
